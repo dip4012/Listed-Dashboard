@@ -1,3 +1,5 @@
+import LoginForm from "@/components/LoginForm"
+
 export default function Home() {
 	return (
 		<div className="flex justify-center items-center">
@@ -9,7 +11,9 @@ export default function Home() {
 				</p>
 			</section>
 
-			<section className="h-screen w-[1440px] bg-white flex items-center justify-center"></section>
+			<section className="h-screen w-[1440px] bg-white flex items-center justify-center">
+				<LoginForm />
+			</section>
 		</div>
 	)
 }
