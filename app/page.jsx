@@ -1,9 +1,23 @@
+"use client"
+
 import LoginForm from "@/components/LoginForm"
+import { useSession } from "next-auth/react"
+import { useRouter } from "next/navigation"
+import { useEffect } from "react"
 
 export default function Home() {
+	const { data: session } = useSession()
+	const router = useRouter()
+
+	useEffect(() => {
+		if (session?.user) {
+			router.replace("/dashboard")
+		}
+	}, [session?.user])
+
 	return (
-		<div className="flex justify-center items-center">
-			<section className="h-screen w-[588px] bg-black flex items-center justify-center">
+		<div className="flex justify-center items-center flex-col md:flex-row">
+			<section className="h-screen w-full bg-black flex items-center justify-center md:w-[588px]">
 				<p>
 					<span className="text-white font-bold text-7xl font-Mostserrat">
 						Board.
@@ -11,7 +25,7 @@ export default function Home() {
 				</p>
 			</section>
 
-			<section className="h-screen w-[1440px] bg-white flex items-center justify-center">
+			<section className="h-screen w-[1440px] bg-[#f5f5f5] flex items-center justify-center">
 				<LoginForm />
 			</section>
 		</div>
