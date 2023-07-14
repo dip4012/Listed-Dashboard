@@ -1,5 +1,3 @@
-"use client"
-
 import SignInCTA from "./SignInCTA"
 import { getProviders, signIn } from "next-auth/react"
 import { useEffect, useState } from "react"
@@ -8,11 +6,17 @@ import Link from "next/link"
 
 export default function LoginForm() {
 	const [providers, setProviders] = useState(null)
+	let redirectUrl = process.env.NEXTAUTH_URL
+
+	useEffect(() => {
+		const url = new URL(location.href)
+		redirectUrl = url.searchParams.get("callbackUrl")
+	})
 
 	useEffect(() => {
 		const findProviders = async () => {
 			const response = await getProviders()
-			setProviders(response)
+			await setProviders(response)
 		}
 
 		findProviders()
@@ -32,15 +36,19 @@ export default function LoginForm() {
 					Object.values(providers).map((provider) => (
 						<SignInCTA
 							key={provider.name}
-							source={`/assets/icons/${provider.name}.svg`}
+							source={`/assets/icons/${provider.id}.svg`}
 							service={provider.name}
-							handleClick={() => signIn(provider.id)}
+							handleClick={() =>
+								signIn(provider.id, {
+									callbackUrl: redirectUrl,
+								})
+							}
 						/>
 					))}
 			</div>
 			<CredsLoginForm />
 			<div className="text-center font-Lato text-base font-normal">
-				<span className="text-[#858585] mr-1">Don't have an account?</span>
+				<span className="text-[#858585] mr-1">Don&#39;t have an account?</span>
 				<Link href="#" className="text-[#346BD4]">
 					Register here
 				</Link>
