@@ -16,7 +16,7 @@ export default function HomeLayout({ children }) {
 	}, [status])
 
 	return status === "authenticated" ? (
-		<div className="p-[40px] flex gap-[60px] justify-center items-center h-screen w-screen min-h-[750px]">
+		<div className="p-[40px] flex gap-[40px] justify-center items-start w-screen h-screen min-h-[750px] min-w-[750px] bg-[#f5f5f5] overflow-scroll no-scrollbar">
 			<SideNav />
 			{children}
 		</div>

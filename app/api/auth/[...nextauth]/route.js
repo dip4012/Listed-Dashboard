@@ -28,7 +28,7 @@ export const authOptions = {
 					await User.create({
 						name: profile.name,
 						email: profile.email,
-						username: profile.name.replace(" ", "_").toLowerCase(),
+						username: profile.email.split("@")[0],
 						image: profile.picture,
 					})
 				}
@@ -41,11 +41,13 @@ export const authOptions = {
 		},
 		async session({ session }) {
 			try {
+				await connectToDB()
+
 				const sessionUser = await User.findOne({
 					email: session.user.email,
 				})
 
-				session.user.id = sessionUser._id.toString()
+				session.user.id = sessionUser && sessionUser._id.toString()
 
 				return session
 			} catch (error) {

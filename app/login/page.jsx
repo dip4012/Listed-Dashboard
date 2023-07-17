@@ -10,12 +10,15 @@ export default function Login() {
 	const { status } = useSession()
 	const router = useRouter()
 
+	console.log(status)
+
 	useEffect(() => {
 		if (status === "authenticated") {
 			console.log("hey there!!")
+
 			router.back()
 		}
-	}, [status, router])
+	})
 
 	return status === "unauthenticated" ? (
 		<div className="flex justify-center items-center flex-col md:flex-row">

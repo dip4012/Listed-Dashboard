@@ -5,5 +5,34 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+@layer utilities {
+	/* Chrome, Safari and Opera */
+	.no-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
+
+	.no-scrollbar {
+		-ms-overflow-style: none; /* IE and Edge */
+		scrollbar-width: none; /* Firefox */
+	}
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+	display: none;
+}
+
+.green {
+	@apply bg-[#DDEFE0];
+}
+
+.yellow {
+	@apply bg-[#F4ECDD];
+}
+
+.red {
+	@apply bg-[#EFDADA];
+}
+
+.violet {
+	@apply bg-[#DEE0EF];
 }

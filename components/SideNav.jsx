@@ -6,7 +6,7 @@ export default function SideNav() {
 	const pathname = usePathname()
 
 	return (
-		<nav className="bg-black rounded-[30px] w-[260px] h-full  px-[50px] py-[60px] flex flex-col justify-start items-start">
+		<nav className="max-[1378px]:hidden bg-black rounded-[30px] w-[260px] h-full  px-[50px] py-[60px] flex flex-col justify-start items-start">
 			<p className="text-white font-Montserrat text-4xl font-bold mb-[60px]">
 				Board.
 			</p>

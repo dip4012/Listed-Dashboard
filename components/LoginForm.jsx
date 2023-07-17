@@ -40,7 +40,7 @@ export default function LoginForm() {
 							service={provider.name}
 							handleClick={() =>
 								signIn(provider.id, {
-									callbackUrl: redirectUrl,
+									callbackUrl: redirectUrl ? redirectUrl : process.env.NEXTAUTH_URL,
 								})
 							}
 						/>
