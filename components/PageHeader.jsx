@@ -1,10 +1,12 @@
-import { useSession } from "next-auth/react"
+import { signOut, useSession } from "next-auth/react"
 import Image from "next/image"
+import Link from "next/link"
 import { useState } from "react"
 
 export default function PageHeader({ title }) {
 	const [searchText, setSearchText] = useState("")
 	const { data: session } = useSession()
+	const [isModalOpen, setIsModalOpen] = useState(false)
 
 	const handleChange = (e) => {
 		e.preventDefault()
@@ -12,10 +14,10 @@ export default function PageHeader({ title }) {
 	}
 
 	return (
-		<div className="w-full min-w-[750px] flex justify-between items-center max-[1378px]:fixed max-[1378px]:top-0 max-[1378px]:left-0 max-[1378px]:z-10 max-[1378px]:bg-[#f5f5f5] max-[1378px]:px-[40px] max-[1378px]:py-[20px]">
+		<div className="w-full flex justify-between items-center z-10">
 			<h1 className="text-black font-Montserrat text-2xl font-bold">{title}</h1>
 
-			<div className="flex justify-center items-center gap-[30px]">
+			<div className="flex justify-center items-center gap-[30px] relative">
 				<div className="w-[180px] h-full relative">
 					<input
 						type="search"
@@ -48,8 +50,30 @@ export default function PageHeader({ title }) {
 					width={30}
 					height={30}
 					alt="profile picture"
-					className="rounded-full"
+					className="rounded-full cursor-pointer"
+					onClick={() => setIsModalOpen((prev) => !prev)}
 				/>
+
+				{isModalOpen && (
+					<div className="absolute top-full right-0 py-[20px] px-[30px] mt-5 bg-white rounded-2xl flex flex-col justify-center items-start gap-[20px]">
+						<Link
+							href="#"
+							className="text-black font-Lato text-sm font-normal"
+							onClick={() => setIsModalOpen(false)}
+						>
+							My Profile
+						</Link>
+						<button
+							className="w-[120px] p-[8px] bg-black text-white font-Lato text-sm font-light rounded-full"
+							onClick={() => {
+								setIsModalOpen(false)
+								signOut()
+							}}
+						>
+							Sign Out
+						</button>
+					</div>
+				)}
 			</div>
 		</div>
 	)

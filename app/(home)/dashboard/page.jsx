@@ -8,10 +8,10 @@ import Schedule from "@/components/Schedule"
 
 export default function Dashboard() {
 	return (
-		<div className="flex-1 flex flex-col items-start justify-start p-[20px] h-full gap-[34px] overflow-scroll no-scrollbar relative">
+		<div className="flex-1 flex flex-col items-start justify-start p-[20px] h-full gap-[34px] overflow-y-scroll no-scrollbar relative">
 			<PageHeader title="Dashboard" />
 
-			<div className="w-full flex items-center justify-between max-[1087px]:flex-col max-[1087px]:gap-[35px] max-[1378px]:mt-[40px]">
+			<div className="w-full flex items-center justify-between max-[1320px]:flex-col max-[1320px]:gap-[35px]">
 				<DemographicCards
 					color="green"
 					icon="revenue_icon"
@@ -40,11 +40,11 @@ export default function Dashboard() {
 
 			<LineChart />
 
-			<div className="w-full h-[256px] flex items-center justify-between gap-[35px] max-[1087px]:flex-col max-[1087px]:h-[547px]">
-				<div className="flex-1 h-[256px] rounded-2xl py-[30px] px-[40px] flex flex-col gap-[16px] bg-white max-[1087px]:w-full">
+			<div className="w-full h-[256px] flex items-center justify-between gap-[35px] max-[1320px]:flex-col max-[1320px]:h-[547px]">
+				<div className="min-[1321px]:flex-1 h-[256px] rounded-2xl py-[30px] px-[40px] flex flex-col gap-[16px] bg-white max-[1320px]:w-full">
 					<PieChart />
 				</div>
-				<div className="flex-1 h-[256px] rounded-2xl py-[30px] px-[40px] flex flex-col gap-[16px] bg-white max-[1087px]:w-full">
+				<div className="min-[1321px]:flex-1 h-[256px] rounded-2xl py-[30px] px-[40px] flex flex-col gap-[16px] bg-white max-[1320px]:w-full">
 					<Schedule />
 				</div>
 			</div>
