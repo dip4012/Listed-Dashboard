@@ -36,3 +36,23 @@ input[type="search"]::-webkit-search-cancel-button {
 .violet {
 	@apply bg-[#DEE0EF];
 }
+
+.legend_green {
+	@apply bg-[#98D89E];
+}
+
+.legend_yellow {
+	@apply bg-[#F6DC7D];
+}
+
+.legend_red {
+	@apply bg-[#EE8484];
+}
+
+.border_green {
+	@apply border-[#9BDD7C];
+}
+
+.border_violet {
+	@apply border-[#6972C3];
+}

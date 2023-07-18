@@ -40,9 +40,9 @@ export default function Schedule() {
 			<div className="w-full h-full flex flex-col justify-between items-center">
 				{tasks.map((task, index) => (
 					<div
-						className={`w-full h-[66px] pl-[15px] border-l-[6px] border-solid border-[#${
-							index % 2 ? "6972C3" : "9BDD7C"
-						}] flex flex-col items-start justify-start`}
+						className={`w-full h-[66px] pl-[15px] border-l-[6px] border-solid ${
+							index % 2 ? "border_violet" : "border_green"
+						} flex flex-col items-start justify-start`}
 						key={task._id}
 					>
 						<h1 className="w-full flex-1 text-[#666666] font-Lato text-sm font-bold flex items-center">

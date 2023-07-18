@@ -12,7 +12,7 @@ export default function PageHeader({ title }) {
 	}
 
 	return (
-		<div className="w-full flex justify-between items-center max-[1378px]:fixed max-[1378px]:top-0 max-[1378px]:left-0 max-[1378px]:z-10 max-[1378px]:bg-[#f5f5f5] max-[1378px]:px-[40px] max-[1378px]:py-[20px]">
+		<div className="w-full min-w-[750px] flex justify-between items-center max-[1378px]:fixed max-[1378px]:top-0 max-[1378px]:left-0 max-[1378px]:z-10 max-[1378px]:bg-[#f5f5f5] max-[1378px]:px-[40px] max-[1378px]:py-[20px]">
 			<h1 className="text-black font-Montserrat text-2xl font-bold">{title}</h1>
 
 			<div className="flex justify-center items-center gap-[30px]">

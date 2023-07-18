@@ -94,6 +94,7 @@ export default function PieChart() {
 
 	const [monthType, setMonthType] = useState("January 2023")
 	const [sum, setSum] = useState(0)
+	const colors = ["legend_green", "legend_yellow", "legend_red"]
 
 	const handleChange = (e) => {
 		setMonthType(e.target.value)
@@ -163,7 +164,7 @@ export default function PieChart() {
 					{options.labels.map((item, index) => (
 						<div className="flex gap-[10px] justify-start items-start" key={item}>
 							<div
-								className={`w-[11px] h-[11px] rounded-full bg-[${options.colors[index]}] mt-[5px]`}
+								className={`w-[11px] h-[11px] rounded-full ${colors[index]} mt-[5px]`}
 							></div>
 
 							<div className="flex flex-col gap-[5px] justify-start items-start flex-1 h-full">
